@@ -1,0 +1,36 @@
+# Node.js / React
+frontend/node_modules/
+frontend/build/
+frontend/.env
+frontend/.DS_Store
+
+# Go build artifacts
+backend/tmp/
+backend/main
+backend/*.log
+backend/.air.toml
+backend/.env
+
+# General Go
+*.out
+*.exe
+*.test
+*.mod
+*.sum
+
+# IDE/editor settings
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS cruft
+.DS_Store
+Thumbs.db
+
+# Docker
+*.pid
+*.bak
+*.tar
+.env
+docker-compose.override.yml

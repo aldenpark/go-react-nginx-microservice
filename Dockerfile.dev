@@ -1,0 +1,20 @@
+FROM golang:1.24
+ENV API_PORT=8080
+ENV STATIC_DIR=/usr/share/nginx/html
+ENV APP_VERSION=1.0.3
+
+# Install Air
+RUN go install github.com/air-verse/air@latest
+
+# Create app dir
+WORKDIR /app
+
+# Preload Go dependencies
+COPY backend/go.mod backend/go.sum ./
+RUN go mod tidy
+
+# Copy app files (will be overridden by volume in compose)
+COPY backend/ .
+
+# Start with air (set via `command:` in compose)
+CMD ["air"]
