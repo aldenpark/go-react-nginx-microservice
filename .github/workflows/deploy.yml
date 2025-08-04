@@ -46,7 +46,7 @@ jobs:
           username: ${{ secrets.DEPLOY_USER }}
           key: ${{ secrets.DEPLOY_KEY }}
           script: |
-            cd /path/to/your/app             # 👈 update this
+            cd /path/to/your/app             # <-- update this
             git pull origin main             # Optional: if compose file is in repo
             docker login ghcr.io -u ${{ secrets.GHCR_USERNAME }} -p ${{ secrets.GHCR_TOKEN }}
             docker-compose pull              # Pull updated image(s)
