@@ -213,7 +213,16 @@ docker exec -it <CONTAINER_ID> sh
 docker-compose -f docker-compose.dev.yml down
 ```
 
-## Required GitHub Secrets
+## Optional: GitHub Actions Deployment via GHCR + SSH
+
+This project is optionally configured to support automated deployment using GitHub Actions. If enabled, the workflow can:
+
+    Build a Docker image from the Go + React application
+    Push the image to GitHub Container Registry (GHCR)
+    Deploy the image to a remote production server over SSH
+
+    To enable it, you'll need to configure the secrets below in your GitHub repository under:
+    Settings → Secrets and variables → Actions
 
 | Secret Name     | Description                                                            |
 | --------------- | ---------------------------------------------------------------------- |
@@ -225,7 +234,7 @@ docker-compose -f docker-compose.dev.yml down
 | `DEPLOY_KEY`    | Private SSH key with access to the server (no passphrase recommended)  |
 
 
-** Optional Enhancements (not required for basic CI/CD)
+Additional optional enhancements (not required for basic CI/CD):
 
     Self-Hosted Runner:
     Run GitHub Actions directly on your server. This avoids pushing to a registry and speeds up deployments.
